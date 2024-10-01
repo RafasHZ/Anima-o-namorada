@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação - There Is a Light</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            padding-top: 50px;
+            overflow: hidden; /* Impede rolagem */
+        }
+
+        .lyrics {
+            font-size: 24px;
+            opacity: 0;
+            transform: translateY(100px) scale(0.8); /* Começa fora da tela e menor */
+            transition: all 1.5s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0) scale(1); /* Volta ao lugar original e em tamanho normal */
+        }
+
+        /* Efeitos adicionais para as linhas */
+        #line1 {
+            color: #f54242; /* Vermelho */
+        }
+
+        #line2, #line5 {
+            color: #f54242; /* Azul claro */
+        }
+
+        #line3, #line6 {
+            color: #f54242; /* Amarelo */
+        }
+
+        #line4 {
+            color: #f54242; /* Verde */
+        }
+    </style>
+</head>
+<body>
+    <h1>EU TE AMOOO!!!</h1>
+    
+    <!-- Texto que será animado -->
+    <div class="lyrics" id="line1">And if a double-decker bus crashes into us</div>
+    <div class="lyrics" id="line2">To die by your side</div>
+    <div class="lyrics" id="line3">Is such a heavenly way to die</div>
+    <div class="lyrics" id="line4">And if a ten ton truck kills the both of us</div>
+    <div class="lyrics" id="line5">To die by your side</div>
+    <div class="lyrics" id="line6">Well, the pleasure, the privilege is mine</div>
+
+    <!-- Controle de áudio -->
+    <audio id="song" controls>
+        <source src="there_is_a_light.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <script>
+        const song = document.getElementById('song');
+
+        // Sincroniza a animação com a música
+        song.addEventListener('play', () => {
+            setTimeout(() => {
+                document.getElementById('line1').classList.add('fade-in');
+            }, 1000); // Aparece após 1 segundo
+
+            setTimeout(() => {
+                document.getElementById('line2').classList.add('fade-in');
+            }, 9000); // Aparece após 6 segundos
+
+            setTimeout(() => {
+                document.getElementById('line3').classList.add('fade-in');
+            }, 11000); // Aparece após 11 segundos
+
+            setTimeout(() => {
+                document.getElementById('line4').classList.add('fade-in');
+            }, 16000); // Aparece após 16 segundos
+
+            setTimeout(() => {
+                document.getElementById('line5').classList.add('fade-in');
+            }, 23000); // Aparece após 21 segundos
+
+            setTimeout(() => {
+                document.getElementById('line6').classList.add('fade-in');
+            }, 26000); // Aparece após 26 segundos
+        });
+    </script>
+</body>
+</html>
